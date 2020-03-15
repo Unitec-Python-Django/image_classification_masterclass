@@ -46,7 +46,7 @@ model.load_weights(args["model"])
 res = model.predict(image)[0]
 
 label = None
-percentage = 40.0
+percentage = 75.0
 
 for cls, index in classes.items():
     formatting_perc =  res[index]*100
