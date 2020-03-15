@@ -1,6 +1,6 @@
 from keras import Input, Model
 from keras import backend as K
-from keras.layers import Conv2D, Dropout, Flatten, Dense, MaxPool2D
+from keras.layers import Conv2D, Flatten, Dense, MaxPool2D
 
 
 class ClassificationNet:
@@ -24,7 +24,7 @@ class ClassificationNet:
         x = MaxPool2D((2, 2), strides=(2, 2), padding='same')(x)
         x = Flatten()(x)
         x = Dense(64, activation='relu')(x)
-        x = Dense(num_classes, activation='softmax', name='classification_net_output')(x)
+        x = Dense(num_classes, activation='sigmoid', name='classification_net_output')(x)
 
         model = Model(inputs=inputs, outputs=x, name='ClassificationNet')
 

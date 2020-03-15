@@ -31,7 +31,7 @@ model = ClassificationNet.build((IMG_WIDTH, IMG_HEIGHT, IMG_CHANNEL), validation
 
 model.summary()
 
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['categorical_accuracy'])
 
 H = model.fit_generator(
     train_generator,
@@ -67,7 +67,7 @@ plt.savefig("classification_model_losses.png")
 plt.close()
 
 # create a new figure for the accuracies
-accuracyNames = ['accuracy']
+accuracyNames = ['categorical_accuracy']
 plt.style.use("ggplot")
 (fig, ax) = plt.subplots()
 
